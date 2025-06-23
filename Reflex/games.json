@@ -1,0 +1,25 @@
+{
+    "data": [
+      {
+        "label": "Crime Simulator",
+        "processNames": ["Crime Simulator.exe"],
+        "icon": "CS",
+        "version": "1.0.0",
+        "memoryOperations": [
+          {
+            "name": "10k Starting Cash",
+            "action": "write",
+            "module": "Assembly-CSharp.dll",  
+            "offset": "0x0005C0A0",           
+            "dataType": "byte",               
+            "uiElement": "unlimitedCash",     
+            "defaultValue": [
+              "0xB8", "0x0F", "0x27", "0x00", "0x00",
+              "0xC3"
+            ],
+            "originalValue": null             
+          }
+        ]
+      }
+    ]
+}
