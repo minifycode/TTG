@@ -1,25 +1,63 @@
 {
-    "data": [
-      {
-        "label": "Crime Simulator",
-        "processNames": ["Crime Simulator.exe"],
-        "icon": "CS",
-        "version": "1.0.0",
-        "memoryOperations": [
-          {
-            "name": "10k Starting Cash",
-            "action": "write",
-            "module": "Assembly-CSharp.dll",  
-            "offset": "0x0005C0A0",           
-            "dataType": "byte",               
-            "uiElement": "unlimitedCash",     
-            "defaultValue": [
-              "0xB8", "0x0F", "0x27", "0x00", "0x00",
-              "0xC3"
-            ],
-            "originalValue": null             
-          }
-        ]
-      }
-    ]
+  "data": [
+    {
+      "label": "Crime Simulator",
+      "processNames": ["Crime Simulator.exe"],
+      "icon": "CS",
+      "version": "1.0.0",
+      "sections": [
+        {
+          "name": "Player Modifications",
+          "icon": "user",
+          "options": [
+            {
+              "name": "Unlimited Health",
+              "type": "slider",
+              "min": 0,
+              "max": 1000,
+              "default": 100,
+              "uiElement": "health",
+              "memoryOperation": {
+                "action": "write",
+                "module": "Assembly-CSharp.dll",
+                "offset": "0x0005C1A0",
+                "dataType": "float"
+              }
+            },
+            {
+              "name": "God Mode",
+              "type": "toggle",
+              "default": false,
+              "uiElement": "godmode",
+              "memoryOperation": {
+                "action": "write",
+                "module": "Assembly-CSharp.dll",
+                "offset": "0x0005C4D0",
+                "dataType": "bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Game Modifications",
+          "icon": "gamepad",
+          "options": [
+            {
+              "name": "Unlimited Cash",
+              "type": "toggle",
+              "default": false,
+              "uiElement": "unlimitedCash",
+              "memoryOperation": {
+                "action": "write",
+                "module": "Assembly-CSharp.dll",
+                "offset": "0x0005C0A0",
+                "dataType": "byte",
+                "value": ["0xB8", "0x0F", "0x27", "0x00", "0x00", "0xC3"]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
